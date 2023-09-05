@@ -1,17 +1,18 @@
 #include <stdio.h>
+#include <math.h>
 int main() {
         int len=0;
-        width=0;
-        depth=0;
-        printf('program to find volume:\n');
-        printf('length? ');
+        int width=0;
+        int depth=0;
+        printf("program to find ball container :\n");
+        printf("length? ");
         scanf("%d",&len);
-        printf('depth? ');
+        printf("depth? ");
         scanf("%d",&depth);
-        printf('width? ');
+        printf("width? ");
         scanf("%d",&width);
-        volume = len * width * depth;
-        printf("%d",volume);
+        int volume = len * width * depth;
+        printf("volume of container is %d",volume);
          
         return 1;
 }//end
