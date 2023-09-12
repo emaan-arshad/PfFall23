@@ -1,3 +1,14 @@
+//programmer:Emaan Arshad 23I-2560
+//date: 9/12/2023
+//desription Printing the pattern for any number of n. Below is an example for n=4.
+****
+****
+****
+****
+
+
+
+
 #include <stdio.h>
 #include <math.h>
 
