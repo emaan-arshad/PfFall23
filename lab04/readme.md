@@ -39,8 +39,10 @@
 
 
 #### Q6
-![IMG_20230915_211933_200](https://github.com/emaan-arshad/PfFall23/assets/142867477/cd0a897f-40fe-4fdc-bf71-e05babda993b)
 
+
+
+![IMG-20230918-WA0035](https://github.com/emaan-arshad/PfFall23/assets/142867477/00369a93-424b-46ba-a88e-3049a2459145)
 
 
 
