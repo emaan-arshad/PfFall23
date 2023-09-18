@@ -1,0 +1,94 @@
+Programmer:Emaan Arshad
+23I-2560
+Date:12-sept-23
+description: to make a diamond
+
+                            
+
+#include <stdio.h>
+int main() {
+	int n;
+	printf("input your integer greater than 1 to make diamond :");
+	scanf("%d",&n);
+	
+	
+	
+	int k = n - 1;
+	while(k>0)
+	{
+		printf(" ");
+		k=k-1;
+		
+	} //first line ending
+	printf("*\n");
+		
+	
+	
+	int i,j=0;
+	int a=n-1;
+	int g1=n-2;
+	int g2=1;
+	while(a>0)
+	{
+		while(g1>j)
+		{
+			printf(" ");
+			j=j+1;
+			
+		}//gaps before 1 star
+		printf("*");
+		while(i<g2)
+		{
+			printf(" ");
+			i=i+1;
+			
+			
+		}//gaps before 2 star
+		printf("*\n");
+		g2=g2 +2;
+		g1=g1-1;
+		a=a-1;
+		i=0;
+		j=0;
+		
+	}// first half ending
+	
+	int b =n-2;
+    int	h1=1;
+	int h2=g2-4;
+	int c=0;
+	int d=0;
+	while(b>0)
+	{
+	    while(c<h1)
+	    {
+	        printf(" ");
+	        c=c+1;
+	     
+	    }
+	    printf("*");
+	    while(d<h2)
+	    {
+	        printf (" ");
+	        d=d+1;
+	        
+	    }
+	    printf("*\n");
+	    h1=h1+1;
+	    h2=h2-2;
+	    c=0;
+	    d=0;
+	    b=b-1;
+	}
+	
+    k = n - 1;
+	while(k>0)
+	{
+		printf(" ");
+		k=k-1;
+		
+	} //last line ending
+	printf("*\n");
+
+  return 0;	
+}//end main
