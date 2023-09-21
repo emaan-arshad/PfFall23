@@ -17,9 +17,15 @@ Q3
 ![IMG-20230921-WA0060](https://github.com/emaan-arshad/PfFall23/assets/142867477/858e93bc-7070-42c0-8afe-3268b4f3eaec)
 
 q4
+![IMG-20230921-WA0064](https://github.com/emaan-arshad/PfFall23/assets/142867477/964a0fff-14ad-48b9-8b42-999358608de3)
+
+
 
 
 q5
+![IMG-20230921-WA0065](https://github.com/emaan-arshad/PfFall23/assets/142867477/f3b15e00-882b-4eca-a8c5-9aea69c3686e)
+
+
 
 Q6
 
@@ -27,6 +33,7 @@ Q6
 
 
 q7
+![IMG-20230921-WA0048](https://github.com/emaan-arshad/PfFall23/assets/142867477/b5d97b1f-c3b9-4934-8da3-21e91123fa16)
 
 
 
@@ -35,6 +42,7 @@ Q8
 
 
 q9
+![IMG-20230921-WA0067](https://github.com/emaan-arshad/PfFall23/assets/142867477/d6d24021-a707-4551-8b74-3721532b4c4e)
 
 
 
