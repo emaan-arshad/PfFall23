@@ -10,5 +10,5 @@ int main() {
     if (a % 10 ==1 && b%10==1) {
         in=in-1001000;
     }
-    printf("%d%",in);
+    printf("%d",in);
 }
