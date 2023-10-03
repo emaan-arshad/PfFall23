@@ -45,5 +45,8 @@ q9
 ![IMG-20230921-WA0067](https://github.com/emaan-arshad/PfFall23/assets/142867477/d6d24021-a707-4551-8b74-3721532b4c4e)
 
 
+q10
+
+![IMG_20231003_192218](https://github.com/emaan-arshad/PfFall23/assets/142867477/5f9f4bf7-ff29-4eea-be4d-19e45155cedd)
 
 
