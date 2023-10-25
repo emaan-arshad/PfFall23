@@ -1,37 +1,51 @@
+//programmer:Emaan Arshad
+//date:24/10/23
+//descr: create a functon to find sum ,maximum and minimum value of array elements
+
+
+
 #include <stdio.h>
 
-int process_array (int arr[800], int n) {
-	int sum =0;
-	int i;
-	for (i=0; i<=8 ; i++){
-        sum = sum + arr[i];
-    } //end for
-    printf ("The sum is of the array is %d ", sum);
-    int max = arr[0];
-    for (i=0; i<n; i++){
-            if (arr[i] > max){
-                max = arr[i];
-            }//end if for check element is greater than previous element
-        }//end for loop for moving through the array elements
-         printf ("The maximum value is %d",max);
-    int min = arr[0];
-         for (i=0; i<n; i++){
-              if (arr[i] < min){
-                 min = arr[i];
-             }//end if to check for finding min value
-         }// end for loop for looping through the array elements
-    printf ("The minimum value is %d",min);
+void processArray(int arr[], int size);
 
+int main() {
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size]; 
+
+ processArray(arr, size);
+
+    return 0;
 }
-int main (){
-	int n;
-	printf ("Enter the number of elements of the array");
-	scanf ("%d", &n);
-	int arr[n];
-	int i;
-	for (i=0; i<n;i++){
-		printf ("Enter the %d element of the array",i);
-		scanf ("%d", arr[i]);
-	}
-	process_array (arr[800], n);
+
+void processArray(int arr[], int size) {
+    int max, min, sum = 0,i;
+    
+  
+
+    for (i = 0; i < size; i++) {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &arr[i]); }
+
+     max = arr[0];
+    min = arr[0];
+
+	   for (i = 0; i < size; i++) {   
+        sum =sum+ arr[i];
+
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    printf("Maximum value is: %d\n", max);
+    printf("Minimum value is: %d\n", min);
+    printf("Sum of elements is: %d\n", sum);
 }
+
