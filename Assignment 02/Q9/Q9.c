@@ -67,5 +67,75 @@ int l=0;
              
              
              
+
+
+n=N;
+    
+int spiral1[100][100]={0};
+ i=0;
+j=n-1;
+ a=n*n;
+ k=0;
+ l=0;
+       
+     
+     
+     
+     
+     
+     if(n%2!=0) {
+         spiral1[(n-1)/2][(n-1)/2]=1;
+     }
+       while(a>1) {
+           
+       
+     
+      for( j=j;j>k;j--) {
+          spiral1[i][j]=a;
+          a--;
+      }
+       
+      
+      for(i=i;i<n-1;i++) {
+          spiral1[i][j]=a;
+          a--;
+      }
+       
+           
+         
+         for(j=j;j<n-1;j++) {
+             spiral1[i][j]=a;
+             a--;
+         }
+         
+        
+         for(i=i;i>l;i--) {
+             spiral1[i][j]=a;
+             a--;
+         }
+        
+         
+         i++;
+         j--;
+         n--;
+          
+            k++;
+            l++;
+             //("i=%d,j=%d,k=%d,l=%d,a=%d",i,j,k,l,a);  
+       }
+         //printf("i=%d,j=%d,k=%d,l=%d,a=%d",i,j,k,l,a);
+         printf("\n\n\n");
+             
+              for(int i=0;i<N;i++){
+                  for(int j=0;j<N;j++) {
+                      printf("%d",spiral1[i][j]);
+                      printf("\t");
+                  }
+                  printf("\n");
+              }
+             
+             
+             
+             
 return 0;
 }
