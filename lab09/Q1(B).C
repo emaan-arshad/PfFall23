@@ -1,4 +1,4 @@
-
+/*programmer: Emaan Arshad  desc: factorial using recursion*/
 #include <stdio.h>
 
 int factorial(int N) {
