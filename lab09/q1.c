@@ -3,7 +3,7 @@
 //programmer:Emaan Arshad
 //date:31/10/23
 //swap by reference using pointers
-
+//in part 1 since function is callled by value the value of a and b only swaps within the function and not iin real
 #include<stdio.h>
 
 int swap(int *a, int *b)
