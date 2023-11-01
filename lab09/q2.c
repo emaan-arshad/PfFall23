@@ -3,40 +3,34 @@
 //reverse an array usiong pointers
 #include <stdio.h>
 
-void reverse (int *arr, int n){
-int i,j,tmp;
-for (i=0; i<n/2; i++){
-tmp = *(arr+i);
-*(arr+i) = *(arr+n-1-i);
-*(arr+n-1-i) = tmp;
-}
-}
 
-int main (){
-//taking array input
-int n;
-printf ("Enter the number of elements of the array");
-scanf ("%d" ,&n);
-int a[n];
-int i;
-for (i=0; i<n; i++){
-printf ("Enter the %d element of the array",i+1);
-scanf ("%d" ,&a[i]);
-}
-//printing original array
-printf ("The original array is given below \n");
-printf ("{");
-for (i=0; i<n; i++){
-printf ("%d, ",a[i]);
-}
-printf ("}");
-reverse (&a[0], n);
-//printing reverse array
-printf ("\n The reversed array is given below \n");
-printf ("{");
-for (i=0; i<n; i++){
-printf ("%d, ",a[i]);
+#include <stdio.h>
+
+void arrrev(int arr[],int size) {
+    int *a;
+    a=arr;
+    for(int i=0;i<size/2;i++ ) {
+        int temp=*(a+i);
+        *(a+i)=*(a+size-i-1);
+        *(a+size-i-1)=temp;
     }
-    printf ("}");
+    
+    
+    
+}
+int main()
+{
+    int size=10;
+    int arr[size];
+       for(int i=0;i<size;i++) {
+            printf("element no : %d",i+1);
+           scanf("%d",&arr[i]);
+       }
+    arrrev(arr,10);
+    printf("reverse array is:\n");
+    for(int i=0;i<size;i++) {
+        printf("%d ",arr[i]);
+    }
 
-return 0;
+    return 0;
+}
