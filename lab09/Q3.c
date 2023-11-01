@@ -41,7 +41,7 @@ for(a3=a3;a3<=&arr3[N-1];a3++) {
 }
 printf("\narray of character is :\n");
 for(a2=a2;a2<=&arr2[N-1];a2++) {
-    printf("element is %s and its address is %p \n",*a2,a2);
+    printf("element is %c and its address is %p \n",*a2,a2);
 }
     return 0;
 }
