@@ -1,6 +1,5 @@
 
 
-
 #include <stdio.h>
 #include <math.h>
 int main()
@@ -11,12 +10,12 @@ int main()
     
    
     for(int i=0;i<n*n*n;i++) {
-         for(int j=1;j<n*n*n;j++) {
-              for(int k=2;k<n*n*n;k++) {
-                for(int l=3;l<n*n*n;l++) {
+         for(int j=i;j<n*n*n;j++) {
+              for(int k=i;k<n*n*n;k++) {
+                for(int l=k;l<n*n*n;l++) {
          
          
-         if (i!=k && i!=j && i!=l &&  j !=k && j!=l && k!=l ) {
+         if (i!=j && i!=k && i!=l &&  j !=k && j!=l && k!=l ) {
               int x = pow(i, 3) + pow(j, 3);
               int y = pow(k, 3) + pow(l, 3);
               if (x == y)
