@@ -36,40 +36,42 @@ for(int i=0;i<10;i++) {
            x=arr[i][0];//storing in a variable to not lose values while swapping
            arr[i][0]=arr[j][0];
            arr[j][0]=x;
+            x=arr[i][1];//storing in a variable to not lose values while swapping
+           arr[i][1]=arr[j][1];
+           arr[j][1]=x;
        }    
    }
    }
    
    
    printf("shirts in ascending order based on age\n");
-     printf("\nthen those shirts in descending order based on price\n");
+
+for(int i=0;i<10;i++) {
+      
+        for(int j=0;j<2;j++) {
+            printf("%d\t",arr[i][j]);
+        }
+        printf("\n");
+    }
+
+
+    
+     printf("\nthen those shirts within same age  in descending order based on price\n");
 
     
     
     
-    int y=0;
-   for(int i=0;i<10;i++) {
-      for(int j=i +1;j<10;j++) {
-            if (arr[i][0]>arr[j][0])//checking if next elements are smaller
-       {
-           x=arr[i][0];//storing in a variable to not lose values while swapping
-           arr[i][0]=arr[j][0];
-           arr[j][0]=x;
-           y=arr[i][1];//storing in a variable to not lose values while swapping
-           arr[i][1]=arr[j][1];
-           arr[j][1]=y;
-           
-       }
-      }
-   }
+  
     for(int i=0;i<10;i++) {
       for(int j=i +1;j<10;j++) {
-          
-          if(arr[i][0]==arr[j][0]) {
+         if( arr[i][0]==arr[j][0] ) {
               if(arr[i][1]<arr[j][1]) {
                   x=arr[i][1];
                   arr[i][1]=arr[j][1];
                   arr[j][1]=x;
+                    x=arr[i][0];
+                  arr[i][0]=arr[j][0];
+                  arr[j][0]=x;
               }
               
               
