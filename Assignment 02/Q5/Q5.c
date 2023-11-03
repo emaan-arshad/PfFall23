@@ -11,7 +11,7 @@ int main()
    
     for(int i=0;i<n*n*n;i++) {
          for(int j=i;j<n*n*n;j++) {
-              for(int k=i;k<n*n*n;k++) {
+              for(int k=j;k<n*n*n;k++) {
                 for(int l=k;l<n*n*n;l++) {
          
          
