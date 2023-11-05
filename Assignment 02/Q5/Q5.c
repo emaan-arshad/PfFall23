@@ -12,7 +12,7 @@ int main()
     for(int i=0;i<n*n*n;i++) {
          for(int j=i;j<n*n*n;j++) {
               for(int k=j;k<n*n*n;k++) {
-                for(int l=k;l<n*n*n;l++) {
+                for(int l=0;l<n*n*n;l++) {
          
          
          if (i!=j && i!=k && i!=l &&  j !=k && j!=l && k!=l ) {
