@@ -1,4 +1,6 @@
-
+//programmer:Emaan Arshad
+//date:5/11/23
+//desc:till n^3 hardy ramanujan number
 
 #include <stdio.h>
 #include <math.h>
