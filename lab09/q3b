@@ -1,0 +1,28 @@
+//programmer:Emaan Arshad
+//date:5/11/23
+//desc: GCD using loops
+
+#include <stdio.h>
+int main()
+{
+    int a;
+    int b;
+    printf("enter number 1: ");
+    scanf("%d",&a);
+     printf("enter number 2: ");
+    scanf("%d",&b);
+    if (a<b) {
+        int temp=a;
+        a=b;
+        b=temp;
+    }
+    int ans=1;
+    int i=1;
+    for( i=2;i<=b;i++) {
+        if (a%i==0 && b%i==0) {
+            ans =i;
+        }
+    }
+printf ("GCD IS %d",ans);
+    return 0;
+}
