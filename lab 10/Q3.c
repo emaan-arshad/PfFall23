@@ -31,6 +31,11 @@ for(int i =0;i<rows;i++) {
     }
     printf("\n");
 }
+    for (int i = 0; i < rows; i++) {
+        free(ptr[i]);
+    }
+    free(ptr); 
+
     return 0;
 }
 void prime(int ** ptr,int rows,int cols) {
