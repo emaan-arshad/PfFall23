@@ -1,51 +1,72 @@
-#include <stdio.h>
+//programmer:Emaan Arshad
+//date:20/11/23
+//desc: to swap different data types using pointers and xor
+  #include <stdio.h>
 #include <stdlib.h>
 
+void swap(void *a, void *b, int datatype);
 
+int main() {
+    unsigned int datatype;
 
-void swap (int *a, int *b);
-int
-main ()
-{
-  unsigned int datatype, size;
+    printf("Enter datatype of elements:\n");
+    printf("Enter 1 for int\nEnter 2 for float\nEnter 3 for char: ");
+    scanf("%d", &datatype);
 
-
-  printf
-    ("enter datatype of elements \nenter 1 for int\nenter 2 for float\nenter 3 for char :");
-  scanf ("%d", &datatype);
-  printf ("enter elements") switch (datatype)
-    {
-    case 1:
-    
-      int ptr1;
-      int ptr2;
-      scanf ("%d", ptr1);
-        scanf ("%d", ptr2);
-      swap(&ptr1,&ptr2); 
-      break;
-    case 2:
-      ptr = malloc (sizeof (float));
-      float *ptr2 = (float *) ptr;
-      scanf ("%f", ptr2);
-      break;
-    case 3:
-      ptr = malloc (sizeof (char));
-      char *ptr3 = (char *) ptr;
-      scanf (" %c%c", ptr3);
-    default:
-      printf ("invalid datatype choice");
+    printf("Enter elements: ");
+    switch (datatype) {
+        case 1: {
+            int b;
+            int a;
+            scanf("%d%d", &a, &b);
+            swap(&a, &b, 1);
+            printf("a=%d, b=%d", a, b);
+            break;
+        }
+        case 2: {
+            float e;
+            float f;
+            scanf("%f%f", &e, &f);
+            swap(&e, &f, 2);
+            printf("a=%.2f, b=%.2f", e, f);
+            break;
+        }
+        case 3: {
+            char g;
+            char h;
+            scanf(" %c %c", &g, &h);
+            swap(&g, &h, 3);
+            printf("a=%c, b=%c", g, h);
+            break;
+        }
+        default:
+            printf("Invalid datatype choice");
     }
 
-
-
-
-  return 0;
+    return 0;
 }
 
-void
-swap (void *a, void *b)
-{
-  *a = *a ^ *b;
-  *b = *a ^ *b;
-  *a = *a ^ *b;
+void swap(void *a, void *b, int datatype) {
+    switch (datatype) {
+        case 1: {
+            int temp = *(int *)a;
+            *(int *)a = *(int *)b;
+            *(int *)b = temp;
+            break;
+        }
+        case 2: {
+            float temp = *(float *)a;
+            *(float *)a = *(float *)b;
+            *(float *)b = temp;
+            break;
+        }
+        case 3: {
+            char temp = *(char *)a;
+            *(char *)a = *(char *)b;
+            *(char *)b = temp;
+            break;
+        }
+        default:
+            printf("Invalid casetype");
+    }
 }
