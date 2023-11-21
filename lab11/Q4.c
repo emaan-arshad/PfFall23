@@ -11,10 +11,8 @@
         int sal;
       
         int hrs;
-       
-        
     };
-int main(){
+int main() {
 
 
 
@@ -40,35 +38,27 @@ scanf("%d",&e[i].hrs);
     for(int i=0;i<10;i++) {
     
     
-        if(e.hrs[i]>=12)  {
-            e.sal[i]+=150;
+        if(e[i].hrs>=12)  {
+            e[i].sal+=150;
         }
-         else if(e.hrs[i]>=10)  {
+         else if(e[i].hrs>=10)  {
             e[i].sal+=100;
         }
         else if(e[i].hrs>=8)  {
             e[i].sal+=50;
         }
-        
-        while(i<10)
+    }
+      i=0;  
+while(i<10)
 {
     printf("\nemployee no:%d",i+1);
     printf("name:%s\n",e[i].name);
-printf("new salary:%d\n",&e[i].sal);
-
-
+printf("new salary:%d\n",e[i].sal);
 ++i;
 }
-        
-        
-        
-        printf("%s",parts[i].s_no);
-        printf("Manufacture year: %d\n",parts[i].year);
-        printf("Material: %s\n",parts[i].mat);
-        printf("Quantity: %d\n\n",parts[i].quan);
-        }//end if
-     }//end for
-    return 0;
+ return 0;
 }//endmain
+
+
 
 
