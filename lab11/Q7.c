@@ -12,6 +12,7 @@ Create a menu in which the following can be done.
 (If we issue a book, then its number gets decreased by 1 and if we add a book, its number gets
 increased by 1)
   */
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -22,13 +23,12 @@ struct books {
     char name[100];
     bool flag;
     int number_books;
-   
 };
 
 int main() {
-
+   // structs books data.number_books={0};
     struct books data[100] = {
-          {1001, "J.K. Rowling", "Harry Potter and the Sorcerer's Stone", true, 5},
+           {1001, "J.K. Rowling", "Harry Potter and the Sorcerer's Stone", true, 5},
         {1002, "George Orwell", "1984", true, 8},
         {1003, "Jane Austen", "Pride and Prejudice", false, 3},
         {1004, "Jane Austen", "Persuauion", true, 7},
@@ -58,7 +58,7 @@ int main() {
         printf("Enter 2 to add a new book\n");
         printf("Enter 3 to display all the books in the library of a particular author\n");
         printf("Enter 4 to display number of books of a particular title\n");
-        printf("Enter 5 to display the total number of in the library\n");
+        printf("Enter 5 to display the total number of books in the library\n");
         printf("Enter 6 to issue a book\n");
         printf("Enter 7 to quit\n");
         scanf("%d", &choice);
@@ -67,13 +67,15 @@ int main() {
             break;
         }
 
-        char name[50];
+        char name[100];
         bool flag = false;
         switch (choice) {
             case 1:
                 printf("Enter book name: ");
-                getchar(); 
+                getchar();
+                flag = false;
                 fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';  // Remove the trailing newline
                 for (int i = 0; i < 100; i++) {
                     if (strcmp(name, data[i].name) == 0) {
                         printf("Book %d:\n", i + 1);
@@ -93,8 +95,9 @@ int main() {
 
             case 2:
                 printf("Enter book name: ");
-                getchar();  
+                getchar();
                 fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';  // Remove the trailing newline
                 for (int i = 0; i < 100; i++) {
                     if (strcmp(name, data[i].name) == 0) {
                         data[i].number_books++;
@@ -110,8 +113,9 @@ int main() {
                     printf("Author: ");
                     scanf("%s", data[f].author);
                     printf("Book Name: ");
-                    getchar();  
+                    getchar();
                     fgets(data[f].name, sizeof(data[f].name), stdin);
+                    data[f].name[strcspn(data[f].name, "\n")] = '\0';  // Remove the trailing newline
                     printf("Availability: ");
                     scanf("%d", &data[f].flag);
                     printf("Number of Books: ");
@@ -122,8 +126,9 @@ int main() {
 
             case 3:
                 printf("Enter author name: ");
-                getchar(); 
+                getchar();
                 fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';  // Remove the trailing newline
                 for (int i = 0; i < 100; i++) {
                     if (strcmp(name, data[i].author) == 0) {
                         printf("\n\nBook %d:\n", i + 1);
@@ -133,7 +138,7 @@ int main() {
                         printf("Availability: %s\n", data[i].flag ? "Available" : "Not Available");
                         printf("Number of Books: %d\n", data[i].number_books);
                         flag = true;
-                        break;
+                        
                     }
                 }
                 if (!flag) {
@@ -143,8 +148,9 @@ int main() {
 
             case 4:
                 printf("Enter book name: ");
-                getchar();  
+                getchar();
                 fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';  // Remove the trailing newline
                 for (int i = 0; i < 100; i++) {
                     if (strcmp(name, data[i].name) == 0) {
                         printf("Number of Books: %d\n", data[i].number_books);
@@ -159,7 +165,7 @@ int main() {
 
             case 5:
                 int total = 0;
-                for (int i = 0; i < 100; i++) {
+                for (int i = 0; i < f; i++) {
                     total += data[i].number_books;
                 }
                 printf("%d is the total number of books in the library\n", total);
@@ -167,8 +173,9 @@ int main() {
 
             case 6:
                 printf("Enter name of the book you want to issue: ");
-                getchar();  // Consume the newline character left by previous scanf
+                getchar();
                 fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';  // Remove the trailing newline
                 for (int i = 0; i < 100; i++) {
                     if (strcmp(name, data[i].name) == 0) {
                         data[i].number_books--;
