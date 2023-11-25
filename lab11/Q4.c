@@ -41,10 +41,10 @@ scanf("%d",&e[i].hrs);
         if(e[i].hrs>=12)  {
             e[i].sal+=150;
         }
-         else if(e[i].hrs>=10)  {
+         else if(e[i].hrs==10)  {
             e[i].sal+=100;
         }
-        else if(e[i].hrs>=8)  {
+        else if(e[i].hrs==8)  {
             e[i].sal+=50;
         }
     }
