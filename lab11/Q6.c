@@ -1,4 +1,9 @@
 
+/*
+    programmer:Emaan Arshad
+date:25/11/23
+    desc:date stored in a struct and days added and new date output
+*/
 #include <stdio.h>
 int isLeapYear(int year) {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
@@ -20,7 +25,7 @@ int main() {
     scanf("%d",&no);
    int year= isLeapYear(today.year);
     int days;
-
+while(no>0) {
     if(today.month==2 ) {
         if (year==1)
         days=29;
@@ -35,40 +40,25 @@ int main() {
         days=30;
     }
     
-    int n=0;
-    int n1=0;
     if(today.day+no>days) {
-        while(today.date>days) {
-           no=no-(days-today.date);
-           today.date=1;
-           n++;
-        }
-       if(today.month+n>12) {
-        while(12<today.month+(1*n)) {
-            today.month=today.month+1*n-12;
-             n1++;
-        }
-        today.year=today.year+n1*1;}
-        else{
-            today.month=today.month+(1*n);
-            today.year++;
-        }
-        
      
+           no=no-(days-today.day+1);
+           today.day=1;
+           
+        if(today.month==12) {
+            today.year++;
+            today.month=1;
+        }
+       else{
+           today.month++;
+       }
     }
-    else{
-        today.date+=no;
-    }
-    
-    
+      else{
+          today.day++;
+          no=0;
+      }  
+       
+}
     printf("%d /%d /%d",today.day,today.month,today.year);
-    
-    
-    
-    
-    
-    
-
     return 0;
 }
-
