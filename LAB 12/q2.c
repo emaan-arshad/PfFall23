@@ -1,56 +1,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int comparefiles (FILE *f_ptr1, FILE *f_ptr2, int *lines, int *cols){
-char ch1,ch2;
-*lines = 1;
-*cols = 0;
-do{
-ch1 = fgetc(f_ptr1);
-ch2 = fgetc(f_ptr2);
+void createWordFile(const char *filename, const char *text) {
+    FILE *file = fopen(filename, "w");
 
-if (ch1 == '\n'){
-*lines += 1;
-*cols = 0;
+    if (file == NULL) {
+        perror("Error creating file");
+        exit(EXIT_FAILURE);
+    }
+
+    fprintf(file, "%s", text);
+
+    fclose(file);
 }
 
-if (ch1 != ch2){
-return -1;
+int compareFiles(const char *file1, const char *file2) {
+    FILE *f1 = fopen(file1, "rb");
+    FILE *f2 = fopen(file2, "rb");
 
-*cols += 1;
-}
-}while (ch1 != EOF && ch2 != EOF);
+    if (f1 == NULL || f2 == NULL) {
+        perror("Error opening files for comparison");
+        exit(EXIT_FAILURE);
+    }
 
-if (ch1 == EOF && ch2 == EOF){
-return 0;
-}
-else {
-return -1;
-}
-}
+    int ch1, ch2;
+    while ((ch1 = fgetc(f1)) != EOF && (ch2 = fgetc(f2)) != EOF) {
+        if (ch1 != ch2) {
+            fclose(f1);
+            fclose(f2);
+            return 0; // Files are not equal
+        }
+    }
 
+    fclose(f1);
+    fclose(f2);
 
-int main (){
-FILE *fptr1;
-fptr1 = fopen("./test1.docx", "rb");
-FILE *fptr2;
-fptr2 = fopen ("./test2.docx", "rb");
+    // If one file is longer than the other, they are not equal
+    if (ch1 != ch2) {
+        return 0;
+    }
 
-if (fptr1 == NULL || fptr2 == NULL){
-printf ("The file is not opened.The program will exit now");
-return 1;
-}
-int rows, columns;
-
-int diff = comparefiles(fptr1,fptr2,&rows,&columns);
-if (diff == 0){
-printf ("Files are equal");
-}
-else{
-printf ("Files are not equal");
+    return 1; // Files are equal
 }
 
-fclose (fptr1);
-fclose (fptr2);
-return 0;
+int main() {
+    const char *file1 = "file1.docx";
+    const char *file2 = "file2.docx";
+    const char *text = "This is a test.";
+
+    // Create two Word files
+    createWordFile(file1, text);
+    createWordFile(file2, text);
+
+    // Compare the contents of the files
+    if (compareFiles(file1, file2)) {
+        printf("Files are equal.\n");
+    } else {
+        printf("Files are not equal.\n");
+    }
+
+    return 0;
 }
