@@ -1,57 +1,67 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-#define MAXLENGTH 100
-#define COLUMNS 100
+int main() {
+	int i, j;
+    FILE *file = fopen("emaan.csv", "r");
 
-int main()
-{
-    FILE *filePointer;
-    filePointer = fopen("Sample-Spreadsheet-10-rows.csv", "r");
-    if (!filePointer)
-    {
-        printf("Error opening the file");
-        return 1;
+    if (file == NULL) {
+        printf("Error opening file");
+        exit(0);
     }
 
-    int row = 0, col = 0;
-    char *mytoken;
-    char fileheaders[COLUMNS][MAXLENGTH];
-    char myline[MAXLENGTH];
+    int rows = 0;
+    int columns = 0;
+    char c;
 
-    fgets(myline, MAXLENGTH, filePointer);
-    printf("%s\n\n", myline);
-
-    mytoken = strtok(myline, ",");
-    while (mytoken != NULL && col < COLUMNS)
-    {
-        strcpy(fileheaders[col++], mytoken);
-        mytoken = strtok(NULL, ",");
+    // Counting columns in the header
+    while ((c = fgetc(file)) != '\n') {
+        if (c == ',') {
+            columns++;
+        }
     }
-int index;
-    for (index = 0; index < col; index++)
-    {
-        printf("%s\t|", fileheaders[index]);
-    }
-    printf("\n");
 
-    while (fgets(myline, MAXLENGTH, filePointer) != NULL)
-    {
-        row++;
-        col = 0; // Reset col for each row
-        mytoken = strtok(myline, ",");
-        while (mytoken != NULL && col < COLUMNS)
-        {
-            printf("%s\t|", mytoken);
-            mytoken = strtok(NULL, ",");
-            col++;
+    // Rewind to the beginning of the file
+    rewind(file);
+
+    // Allocate memory for header and data
+    char header[256];
+    char data[256][columns + 1][256]; // Assuming a maximum of 256 rows
+
+    // Read and print header
+    fgets(header, sizeof(header), file);
+    printf("%s\n", header);
+
+    // Read and print data
+    while (fscanf(file, "%[^,\n]%*c", data[rows][0]) != EOF) {
+        for ( j = 1; j <= columns; j++) {
+            fscanf(file, "%[^,\n]%*c", data[rows][j]);
+        }
+
+        rows++;
+
+        if (rows >= 256) {
+            // Maximum number of rows reached
+            break;
+        }
+    }
+
+    // Print data in tabular form
+    for ( i = 0; i < rows; i++) {
+        for ( j = 0; j <= columns; j++) {
+            printf("%s\t", data[i][j]);
+
+            if (j < columns) {
+                printf("|");
+            }
         }
         printf("\n");
     }
-    printf("Total Rows: %d\nTotal Columns: %d\n", row, col);
 
-    fclose(filePointer);
+    printf("\nTotal number of rows: %d\n", rows);
+    printf("Total number of columns: %d\n", columns + 1);
+
+    fclose(file);
 
     return 0;
 }
