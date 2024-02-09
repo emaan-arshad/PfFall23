@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class WaterBottle {
+private:
+    string company;
+    string color;
+    int cap1;
+    int cap2;
+
+public:
+    void set_company(string Company) {
+        company = Company;
+    }
+
+    string get_company() const {
+        return company;
+    }
+
+    void set_color(string Color) {
+        color = Color;
+    }
+
+    string get_color() const {
+        return color;
+    }
+
+    void set_capacity(int Capacity) {
+        cap1 = Capacity;
+        cap2 = cap1 * 1000;
+    }
+
+    int get_capacity_liters() const {
+        return cap1;
+    }
+
+    int get_capacity_milliliters() const {
+        return cap2;
+    }
+
+    void update_cap(int cap) {
+        cout << "Enter amount of water you consumed in ml: ";
+        cin >> cap;
+
+        if (cap <= cap2) {
+            cap2 -= cap;
+            cap1 = cap2 / 1000;
+        } else {
+            cout << "Not enough water in the bottle." << endl;
+        }
+    }
+};
+
+int main() {
+    WaterBottle wb1;
+
+    wb1.set_company("Aqua");
+    wb1.set_color("White");
+    wb1.set_capacity(2);
+
+    cout << "Company: " << wb1.get_company() << endl;
+    cout << "Color: " << wb1.get_color() << endl;
+    cout << "Capacity: " << wb1.get_capacity_liters() << " liters " << wb1.get_capacity_milliliters() << " milliliters" << endl;
+
+    wb1.update_cap(500);
+
+    return 0;
+}
