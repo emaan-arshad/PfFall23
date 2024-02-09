@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BoardMarker {
+    string brand;
+    string shade;
+    bool refillable;
+    bool ink_status;
+
+public:
+    void set_brand(string Brand) {
+        brand = Brand;
+    }
+
+    string get_brand() {
+        return brand;
+    }
+
+    void set_shade(string Shade) {
+        shade = Shade;
+    }
+
+    string get_shade() {
+        return shade;
+    }
+
+    void set_refill(bool refill) {
+        refillable = refill;
+    }
+
+    bool get_refill() {
+        return refillable;
+    }
+
+    void set_ink(bool ink) {
+        ink_status = ink;
+    }
+
+    bool get_ink() {
+        return ink_status;
+    }
+
+    void writing() {
+        if (ink_status == false)
+            cout << "Ink has run out" << endl;
+        else
+            cout << "Marker has ink" << endl;
+    }
+
+    void refill() {
+        if (refillable == false)
+            cout << "Marker is not refillable" << endl;
+        else
+            cout << "Marker is refillable" << endl;
+    }
+};
+
+int main() {
+    BoardMarker bm1;
+    bm1.set_brand("Dollar");
+    bm1.set_shade("Black");
+    bm1.set_refill(true);
+    bm1.set_ink(true);
+    cout << "Brand: " << bm1.get_brand() << endl;
+    cout << "Shade: " << bm1.get_shade() << endl;
+    cout << "Refillable: " << (bm1.get_refill() ? "Yes" : "No") << endl;
+    cout << "Ink Status: " << (bm1.get_ink() ? "Available" : "Empty") << endl;
+
+    bm1.writing();
+
+    bm1.refill();
+
+    return 0;
+}
