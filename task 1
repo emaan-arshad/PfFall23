@@ -64,8 +64,12 @@ int main() {
     bm1.set_ink(true);
     cout << "Brand: " << bm1.get_brand() << endl;
     cout << "Shade: " << bm1.get_shade() << endl;
-    cout << "Refillable: " << (bm1.get_refill() ? "Yes" : "No") << endl;
-    cout << "Ink Status: " << (bm1.get_ink() ? "Available" : "Empty") << endl;
+    cout << "Refillable: " ;
+	 if(bm1.get_refill() ==true) cout<<"Yes"<<endl; 
+	else cout<<"No"<< endl;
+    cout << "Ink Status: " ;
+	 if(bm1.get_ink()==true)  cout<<"ink is available" <<endl;
+	else cout<< "pen is empty" << endl;
 
     bm1.writing();
 
