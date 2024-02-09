@@ -47,7 +47,7 @@ public:
         if (cap <= cap2) {
             cap2 -= cap;
             cap1 = cap2 / 1000;
-            cout << "Water consumption updated. Remaining capacity: " << cap1 << " liters " << cap2 % 1000 << " milliliters." << endl;
+            cout << "Water consumption updated. Remaining capacity: " << cap1 << " liters " << cap2 << " milliliters." << endl;
         } else {
             cout << "Not enough water in the bottle." << endl;
         }
